@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { React, useState } from 'react'
 import './App.css'
+import styled from "styled-components"
+import StartGame from './Components/StartGame'
+import GamePlay from './Components/GamePlay';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [gameStarted, setGameStarted] = useState(true);
 
+  const toggleGamePlay = () =>  {
+    setGameStarted(prev => !prev);
+
+  }
   return (
     <>
-      <h1>Here is the new dice game</h1>
+    {gameStarted ? <GamePlay/> : <StartGame
+    toggle={toggleGamePlay}
+    />}
     </>
   )
 }

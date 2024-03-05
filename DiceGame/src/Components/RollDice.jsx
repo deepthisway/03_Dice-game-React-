@@ -1,17 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 
-const RollDice = () => {
-    const [currentDice, setCurrentDice] = useState(1);
-
-    const generateRandom = (min, max) => {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    const rollDice = () =>  {
-        const random= generateRandom(1,6);
-        setCurrentDice((prev)=>random);
-    }
+const RollDice = ({rollDice, currentDice}) => {
+    // state is removed so pass propes in parent element
 
   return (
     <DiceContainer>

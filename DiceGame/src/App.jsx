@@ -3,6 +3,7 @@ import './App.css'
 import styled from "styled-components"
 import StartGame from './Components/StartGame'
 import GamePlay from './Components/GamePlay';
+// import ComponentStyle from 'styled-components/dist/models/ComponentStyle';
 
 function App() {
   const [gameStarted, setGameStarted] = useState(true);

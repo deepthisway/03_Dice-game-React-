@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const NumberSelector = () => {
+const NumberSelector = ({error, selectedNumber, setSelectedNumber}) => {
     const numbers= [1,2,3,4,5,6];
-    const [selectedNumber, setSelectedNumber] = useState();
-
+    // since we have removed useState of number selector 
+    // to match the selected number with the dice one (rollDice's state is also removed)
+    // but here, selected number and setSelectedNumber is being used
+    // so we have to pass them as props to the parent.
+    // and create these props by going where the NumberSelector file is imported.
+    // i.e, in Gameplay
 
   return (
     <NumberSelectorContainer>
+    <p className='error'>{error}</p>
     <div className='selectionBoxes'>  
         {/* <Box></Box>
         <Box></Box>
@@ -50,7 +55,11 @@ flex-direction: column;
 align-items:end;    // to use this, we must do display flex first.
 margin-right: 24px;
 
-
+    .error{
+        color: red;
+        font-size: large;
+        font-weight: 400;
+    }
     .selectionBoxes{
         display: flex;
         gap: 24px;
